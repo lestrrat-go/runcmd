@@ -15,4 +15,9 @@ ctx := runcmd.Context(context.Background()).
 if err := runcmd.Run(ctx, "docker", "ps"); err != nil {
   ...
 }
+// You can keep reusing the same ctx to get the same
+// option set
+if err := runcmd.Run(ctx, "kubectl", "apply", "-f", "foo.yaml"); err != nil {
+  ...
+}
 ```
